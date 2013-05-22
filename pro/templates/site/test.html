@@ -1,0 +1,11 @@
+<h1>Edit Profile</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+Edit contact info for {{ profile.user }}
+
+ {% csrf_token %}
+ {{ form.errors }}
+ {{ form.non_field_errors }}
+ 
+

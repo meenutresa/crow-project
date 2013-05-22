@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<script src="../uploads/js/jquery-1.7.1.min.js"></script>
+<script>
+$(window).load(function() {
+ //Image Hover Efect
+ $(".loading").fadeOut(1000); 	
+});
+
+$(document).ready(function() {
+$('#username').focus();
+$('#username').keydown(function(e) {
+   var code = e.keyCode || e.which;
+   if (code == '9') {
+     e.preventDefault();
+     $('#password').focus();
+
+   return false;
+   }
+
+});
+});
+</script>
+<style>
+ * {
+  font-family: sans-serif, arial;
+ }
+ body {
+  background: #fff;
+ }
+ .loading {
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ z-index:100000;
+ background:url(../uploads/img/loading.gif) no-repeat center center #fff;
+}
+
+ h2 {
+  font-weight: normal;
+  font-size: 20px;
+ }
+ h2.login {
+  margin-top: 9px;
+ }
+ h2.boti {
+  font-size: 20px;
+  margin-bottom: 18px;
+  clear: left;
+  margin-top: 10px;
+ }
+ form.log {
+  margin-top: -5px;
+  clear: both;
+ } 
+ form.log input {
+  margin-bottom: 18px;
+ }
+ img.icon {
+  float: left;
+  margin-bottom: 5px;
+ }
+input.signup {
+ background: #c51f31;
+ color: #fff;
+ box-shadow: 0 1px 3px #666;
+ border: 0;
+ cursor: pointer;
+ padding: 4px 20px 6px 20px;
+ border-radius: 3px;
+ font-weight: bold;
+ width: 100px;
+ clear: left;
+}
+input.signup:hover {
+ background: #aa1727;
+}
+form.boti input {
+ margin-bottom: 5px;
+}
+form.boti input.signup {
+ margin-top: 12px;
+}
+form.boti label {
+ font-size: 14px;
+ margin-top: -1px;
+}
+form.boti label:hover {
+ cursor: pointer;
+}
+p.lf {
+ font-size: 12px;
+ margin-top: 10px;
+ float: right;
+}
+a {
+ color: #000;
+ text-decoration: none;
+}
+a:hover {
+ text-decoration: underline;
+}
+hr {
+ clear: both;
+ border: 0;
+ height: 1px;
+ color: #ddd;
+ background-color: #ddd;
+}
+</style>
+<div class="loading"></div>
+<p class="lf"><a href="#" target="_blank">Register</a></p>
+<a href="http://www.bluebag.in" target="_blank"><img class="icon" src="../uploads/img/logo.png" /></a>
+<hr />
+<h2 class="boti">Log In</h2>
+ <form class="log" method="post" action="../auth2/">{% csrf_token %}
+ <label for="username">Username </label><input type="text" name="username" value="" id="username" required="required" /><br />
+ <label for="password">Password </label><input type="password" name="password" value="" id="password" required="required" /><br />
+ <input class="signup" type="submit" value="Log In" id="shoutclose" />
+ <a style="font-size: 12px; float: right; margin-top: 9px" href="#" target="_blank">Forgot Password</a> 
+</form>

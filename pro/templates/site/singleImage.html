@@ -1,0 +1,121 @@
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>ShoutCrow</title>
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+ <link href="favicon.png" rel="shortcut icon" type="image/x-icon">
+ <link rel="stylesheet" href="{{MEDIA_URL}}css/style.css">
+ <script src="{{MEDIA_URL}}js/jquery.js"></script>
+ <script src="{{MEDIA_URL}}js/main.js"></script>
+</head>
+
+<body>
+<div id="header">
+  <div class="fixed">
+   <a id="logo" href="../">
+    <img src="{{MEDIA_URL}}img/logo.png" alt="logo">
+   </a>
+   
+   <div class="menu mtrending">
+    <a href="/">Trending</a>
+   </div>
+   <div class="menu myfeed">
+    <a href="/myfeed">My Feed</a>
+   </div>
+   
+   <div id="headerRight">
+    <form method="post" action="#">
+	 <input type="text" id="search" placeholder="Search">
+	</form>
+	{% if user.is_authenticated %}
+<div id="userPanel">
+	 <a class="dpSmall" href="profile.html"><img src="{{MEDIA_URL}}img/dp2small.png"></a>
+	 <a class="userSmall" href="profile.html"></a>
+	 <a class="accExpand" href="#"><img src="{{MEDIA_URL}}img/accExpand.png"></a>
+	 
+	 <div id="userDrop">
+	  <a class="uditem" href="profile.html">Profile</a>
+	  <a class="uditem" href="#">Settings</a>
+	  <a class="uditem" href="/app-logout">Logout</a>
+	 </div>
+	</div>
+
+	{% else %}
+	<a href="/accounts/login/" class="loginb">Log In</a>
+	<a href="/accounts/register/" class="signupb">Sign Up</a>
+	{% endif %}
+   
+   </div>
+  </div>
+ </div>
+ <div id="content">
+  <div class="fixed">  
+  <div class="content_area">
+  
+{% if item %}
+
+  
+    <div class="post_wrap">
+   <div class="post">
+    <a class="dp" href="profile.html"><img src="{{MEDIA_URL}}img/dp1.png"></a>
+    <p class="meta"><a class="author" href="profile.html">{{item.user}}</a> shouted from <a class="ack" href="#">{{item.url}}</a></p>
+	<p class="desc">{{item.text}}</p>
+	<a class="clip" href="/shouts/{{item.id}}">
+	{% if item.isImage %}
+    
+    <img src="{{item.image.url}}"/>
+        {% elif item.isVideo %}
+        <iframe class="youtube-player" type="text/html" width="320" height="200" src="{{item.url}}" frameborder="0">
+</iframe>
+       {% endif %}
+    <div class="lct">
+	</div>
+   </div>
+   </div>
+
+   {% endif %}    
+</div>
+  
+    <div id="sidebar">	
+    <div class="sidebarEl">
+	 <img class="simg" src="{{MEDIA_URL}}img/tr.png"><h2>Trending</h2>
+	 <ul class="trending">
+	  <li><a href="#">#design</a></li>
+	  <li><a href="#">#typography</a></li>
+	  <li><a href="#">#funny</a></li>
+	  <li><a href="#">#avanteammedehartal</a></li>
+	  <li><a href="#">#olympics</a></li>
+	  <li><a href="#">#technology</a></li>
+	  <li><a href="#">#awesome</a></li>
+	  <li><a href="#">#motivational</a></li>
+	  <li><a href="#">#logos</a></li>
+	  <li><a href="#">#memes</a></li>
+	 </ul>
+	 <a class="sm" href="#">See More..</a>
+	</div>
+	
+    <div class="sidebarEl">
+	 <h2>People you may like</h2>
+	 <div class="popular">	
+      <span class="follow"><a href="#" class="f">Follow</a><a class="closeTag" href="#"><img src="{{MEDIA_URL}}img/cancelFollow.png"/></a></span>
+	  <a href="#" class="dpSmall"><img src="{{MEDIA_URL}}img/dp2small.png"></a>
+	  <a href="#" class="user">Amit S Namboothiry</a>
+	  <p class="oneLiner">Designer. Coder.</p>
+	 </div>
+	 <div class="popular">
+      <span class="follow"><a href="#" class="f">Follow</a><a class="closeTag" href="#"><img src="{{MEDIA_URL}}img/cancelFollow.png"/></a></span>
+	  <a href="#" class="dpSmall"><img src="{{MEDIA_URL}}img/dp1small.png"></a>
+	  <a href="#" class="user">Vijith Padmanabhan</a>
+	  <p class="oneLiner">Tech enthusiast</p>
+	 </div>
+	 <a class="sm" href="#">See More..</a>
+	</div>
+	
+	<p class="copy">&#169; 2013 Dolojo LLP.  <a style="margin-left: 25px;" href="#">About</a>  <a href="#">Help</a>  <a href="#">Terms</a>  <a href="#">Privacy</a>  </p>
+  </div>
+  </div>
+ </div>
+
+</body></html>

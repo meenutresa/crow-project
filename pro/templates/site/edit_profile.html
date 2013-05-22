@@ -1,0 +1,27 @@
+<h1>Edit Profile Pic</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+Edit profile for {{ profile.user }}
+
+
+<form enctype="multipart/form-data" action="" method="post">
+ {% csrf_token %}
+ <p>{{ form.non_field_errors }}</p>
+
+			<p>
+
+
+{{ form.as_p}}</p>
+
+
+
+			<p>
+                        
+				{{ form.profilepic.errors }}
+				
+
+			</p>
+
+ 
+ <p><input type="submit" value="Edit" /></p>
+</form>

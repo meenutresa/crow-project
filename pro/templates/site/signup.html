@@ -1,0 +1,59 @@
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>ShoutCrow</title>
+ <meta name="description" content="">
+ <meta name="keywords" content="">
+ <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+ <link href="../uploads/img/favicon.png" rel="shortcut icon" type="image/x-icon">
+ <link rel="stylesheet" href="../uploads/css/style.css">
+ <script src="../uploads/js/jquery.js"></script>
+ <script src="../uploads/js/main.js"></script>
+</head>
+
+<body>
+<div id="blur"></div>
+
+<div id="header">
+  <div class="fixed">
+   <a id="logo" href="index.html">
+    <img src="../uploads/img/logo.png" alt="logo">
+   </a>
+   
+   <div class="menu mtrending">
+    <a href="index.html">Trending</a>
+   </div>
+   <div class="menu myfeed">
+    <a href="#">My Feed</a>
+   </div>
+   
+   <div id="headerRight">
+    <form method="post" action="#">
+	 <input type="text" id="search" placeholder="Search">
+	</form>
+	
+	<a href="login.html" class="loginb">Log In</a>
+	
+   </div>
+  </div>
+ </div>
+ <div id="content">
+  <div class="fixed">
+  {% if error %}
+  <div class="error"><h4>{{error}}</h4></div>
+  {% endif %}
+   <div class="full_wrap">
+    <h1>Sign Up</h1>
+	<form action="../signup/" method="post">{% csrf_token %}
+	 <input type="text" placeholder="Name" id="name"/> <br />
+	 <input type="text" placeholder="Email" id="email"/> <br />
+	 <input type="text" placeholder="Password" id="password"/> <br />
+	 <input type="text" placeholder="Confirm Password" id="confirm" /> <br />
+	 <input class="submit" type="submit" value="Sign Up" />
+	</form>
+   </div>
+  
+  </div>
+ </div>
+
+</body></html>

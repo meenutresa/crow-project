@@ -1,0 +1,15 @@
+<h1>Edit Profile</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+
+<form action="/edit/abc" method="post">
+<p>Description: <input type="text" name="description">{{description}}</p>
+
+        
+        
+<input type="submit" value="result" />
+
+{% csrf_token %}
+</form>
