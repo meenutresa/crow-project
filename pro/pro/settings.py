@@ -6,8 +6,8 @@ SITE_PATH= os.path.dirname(os.path.realpath(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-FACEBOOK_APP_ID = '616060601740251'
-FACEBOOK_APP_SECRET = '933b5adc778ce27a2a1d0781a9b0ecdd'
+FACEBOOK_APP_ID = ''
+FACEBOOK_APP_SECRET = ''
 FACEBOOK_SCOPE = 'email,publish_stream'
 
 ADMINS = (
